@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Fomo Fairies NFT</title>
+
+  <link rel="stylesheet" href="/build/main.css">
+  <script src="/build/main.js"></script>
+</head>
+<body>
+  <main>
+    <div id="minting-dapp"></div>
+  </main>
+  <script src = "https://cdnjs.cloudflare.com/ajax/libs/howler/2.1.1/howler.js"></script>
+  <script>
+    var sound = new Howl({
+      src: ["https://cms-duck.s3.eu-west-2.amazonaws.com/metaraver_1.mp3"],
+      autoplay: true,
+      loop: true,
+      volume: 0.5,
+    });
+
+    sound.play();
+    console.log(sound)
+  </script>
+</body>
+</html>
