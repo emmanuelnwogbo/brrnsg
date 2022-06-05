@@ -162,9 +162,6 @@ export default class MintWidget extends React.Component<Props, State> {
 
             <div className="main__controls">
               <div className="main__controls--supplystatus">{this.props.totalSupply}/{this.props.maxSupply}</div>
-              <div className="main__controls--toggle">
-                  <span className="main__controls--amount toggle">{this.state.mintAmount}</span>
-              </div>
               <div className="main__controls--incde">
                 <figure className="main__controls--togglebackground">
                   <img src="build/images/incredubackground.png"/>
@@ -173,6 +170,7 @@ export default class MintWidget extends React.Component<Props, State> {
                   <figure onClick={() => this.decrementMintAmount()}>
                     <img src="build/images/reduce.png"/>
                   </figure>
+                  <span className="main__controls--amount">{this.state.mintAmount}</span>
                   <figure onClick={() => this.incrementMintAmount()}>
                     <img src="build/images/increase.png"/>
                   </figure>

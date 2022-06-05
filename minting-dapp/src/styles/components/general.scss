@@ -10,11 +10,11 @@
 
 @keyframes brrrr {
   0% {
-    transform: translateY(#{scaleValue(6)}) scale(1.03);
+    transform: translateY(#{scaleValue(6)});
   }
   
   100% {
-    transform: translateY(#{scaleValue(4)}) scale(1);
+    transform: translateY(#{scaleValue(4)});
   }
 }
 
@@ -26,8 +26,8 @@
 }
 
 body {
-  overflow-x: hidden;
   color: #000000;
+  height: #{scaleValue(900)};
 }
 
 html {
@@ -36,20 +36,27 @@ html {
 
 .container {
   position: relative;
-  height: 100vh;
+  height: #{scaleValue(900)};
   width: 100vw;
-  overflow: hidden;
+
+  @media only screen and (max-width: 414px) {
+    //height: 100vh;
+  }
 
   &__back {
     position: absolute;
-    height: 100vh;
+    height: #{scaleValue(900)};
     width: 100vw;
     top: 0;
     left: 0;
     z-index: 1;
 
+    @media only screen and (max-width: 414px) {
+      //height: 100vh;
+    }
+
     & img {
-      object-fit: fill;
+      object-fit: unset;
       height: 100%;
       width: 100%;
     }
@@ -59,6 +66,10 @@ html {
     position: relative;
     z-index: 2;
     display: flex;
+
+    @media only screen and (max-width: 414px) {
+      //flex-direction: column;
+    }
   }
 
   &__photos {
@@ -68,14 +79,16 @@ html {
 
     &--wall {
       width: #{scaleValue(560)};
-      height: 98vh;
+      height: #{scaleValue(900)};
       position: absolute;
-      bottom: 0;
+      top: 0;
       left: 0;
+      overflow: hidden;
 
       & img {
-        width: #{scaleValue(560)};
-        height: 98vh;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
       }
     }
   }
@@ -84,11 +97,11 @@ html {
     position: absolute;
     width: #{scaleValue(676)};
     z-index: 2;
-    height: 80vh;
+    height: #{scaleValue(676)};
     position: absolute;
-    bottom: 0;
+    top: #{scaleValue(140)};
     background: transparent;
-    padding-left: #{scaleValue(25)};
+    padding-left: #{scaleValue(35)};
 
     &--area {
       display: flex;
@@ -108,8 +121,8 @@ html {
       background-size: cover;
       background-position: top;
       position: relative;
-      width: #{scaleValue(200)};
-      height: 24.5vh;
+      width: #{scaleValue(210)};
+      height: #{scaleValue(230)};
 
       & figure {
         width: 88%;
@@ -138,7 +151,7 @@ html {
           height: 100%;
           width: 100%;
           transition: all .3s ease;
-          animation: brrrr .02s ease-in-out infinite alternate;
+          animation: brrrr .1s ease-in-out infinite alternate;
         }
       }
     }
@@ -150,19 +163,24 @@ html {
 
   &__mintbobo {
     position: relative;
-    background: blue;
     display: flex;
     justify-content: center;
     align-items: center;
     height: #{scaleValue(120)};
     width: #{scaleValue(380)};
-    -webkit-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
-    -moz-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
-    box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+
+    &::before {
+      position: absolute;
+      content: '';
+      background: rgba(0, 0, 0, 0.63);
+      z-index: -1;
+      width: 100%;
+      height: 100%;
+      transform: translateY(#{scaleValue(8)}) translateX(#{scaleValue(5)});
+    }
 
     & figure {
       
-
       &:nth-child(1) {
         position: absolute;
         top: 0;
@@ -194,7 +212,7 @@ html {
   height: #{scaleValue(200)};
   width: #{scaleValue(200)};
   padding: #{scaleValue(30)};
-  animation: brrrr .02s ease-in-out infinite alternate;
+  animation: brrrr 1s ease-in-out infinite alternate;
 
   & img {
     width: 100%;
