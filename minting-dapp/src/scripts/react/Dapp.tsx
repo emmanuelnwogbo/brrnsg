@@ -8,9 +8,10 @@ import NetworkConfigInterface from '../../../../smart-contract/lib/NetworkConfig
 //import CollectionStatus from './CollectionStatus';
 import MintWidget from './MintWidget';
 import Whitelist from '../lib/Whitelist';
-import { themesList } from 'web3modal';
 
-import Sound from './Sound';
+import Web3 from "web3";
+import Web3Modal from "web3modal";
+import WalletConnectProvider from "@walletconnect/web3-provider";
 
 const ContractAbi = require('../../../../smart-contract/artifacts/contracts/' + CollectionConfig.contractName + '.sol/' + CollectionConfig.contractName + '.json').abi;
 
@@ -88,6 +89,32 @@ export default class Dapp extends React.Component<Props, State> {
     this.registerWalletEvents(browserProvider);
     await this.connectWallet();
     //await this.initWallet();
+
+    if (window.matchMedia("(max-width: 414px)").matches) {
+      
+    }
+
+    const providerOptions = {
+      walletconnect: {
+        package: WalletConnectProvider, // required
+        options: {
+          infuraId: "b84b6a3a88fc4655902dba0c9cb32b7a"
+        }
+      }
+    };
+
+    const web3Modal = new Web3Modal({
+      network: "mainnet", // optional
+      providerOptions
+    });
+
+    //const provider = await web3Modal.connect();
+    //const web3 = new Web3(provider);
+    console.log(web3Modal)
+    const connection = await web3Modal.connect()
+    const provider = new ethers.providers.Web3Provider(connection)
+    const accounts = await provider.listAccounts()
+    console.log({ accounts })
   }
 
 
@@ -396,9 +423,6 @@ export default class Dapp extends React.Component<Props, State> {
       ContractAbi,
       this.provider.getSigner(),
     ) as NftContractType;
-
-
-    console.log(this.contract, this.state)
 
     this.setState({
       maxSupply: (await this.contract.maxSupply()).toNumber(),
