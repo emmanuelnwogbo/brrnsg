@@ -301,15 +301,42 @@ html {
 
   @media only screen and (max-width: 414px) {
     position: relative;
-    height: #{scaleValue(600)};
+    height: #{scaleValue(300)};
     width: #{scaleValue(500)};
-    //margin-bottom: #{scaleValue(40)};
-    //margin-top: #{scaleValue(190)};
   }
 
   & img {
     width: 100%;
     object-fit: cover;
+  }
+}
+
+.icons {
+  position: fixed;
+  right: #{scaleValue(110)};
+  top: #{scaleValue(129)};
+  padding: #{scaleValue(30)};
+  cursor: pointer;
+
+  @media only screen and (max-width: 414px) {
+    position: relative;
+  }
+
+  & span {
+    display: inline-block;
+    height: #{scaleValue(30)};
+    width: #{scaleValue(30)};
+
+    @media only screen and (max-width: 414px) {
+      height: #{scaleValue(200)};
+      width: #{scaleValue(200)};
+    }
+
+    & img {
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+    }
   }
 }
 

@@ -23,6 +23,17 @@
   padding: #{scaleValue(30)} #{scaleValue(20)};
   height: #{scaleValue(500)};
 
+  &.prereveal {
+    height: #{scaleValue(400)};
+
+    @media only screen and (max-width: 414px) {
+      width: 70vw;
+      height: #{scaleValue(1400)};
+      border: 5px solid #000000;
+      padding: #{scaleValue(60)} #{scaleValue(20)};
+    }
+  }
+
   @media only screen and (max-width: 414px) {
     width: 70vw;
     height: #{scaleValue(1800)};
@@ -105,6 +116,23 @@
         object-fit: contain;
         height: 59%;
         width: 54%;
+      }
+    }
+
+    &--calm {
+      width: #{scaleValue(260)};
+      height: #{scaleValue(85)};
+      margin-top: #{scaleValue(10)};
+
+      @media only screen and (max-width: 414px) {
+        width: #{scaleValue(900)};
+        height: #{scaleValue(200)};
+      }
+
+      & img {
+        object-fit: contain;
+        height: 100%;
+        width: 100%;
       }
     }
 

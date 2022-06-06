@@ -281,6 +281,14 @@ export default class Dapp extends React.Component<Props, State> {
                 />
               </div>
 
+
+              <div className="icons">
+                  <a href="https://twitter.com/FomoFairiesWTF" target="_blank">
+                    <span>
+                      <img src="build/images/twitter.png"/>
+                    </span>
+                  </a>
+              </div>
               <figure className="logo">
                 <img src="build/images/logo.png"/>
               </figure>
