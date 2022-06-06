@@ -22,7 +22,17 @@
   transform: rotate(-2deg);
   padding: #{scaleValue(30)} #{scaleValue(20)};
 
+  @media only screen and (max-width: 414px) {
+    width: 90vw;
+  }
+
   &__phrases {
+
+    @media only screen and (max-width: 414px) {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
 
     &--item {
       border-bottom: 2px solid #000000;
@@ -30,16 +40,30 @@
       height: #{scaleValue(90)};
       width: #{scaleValue(360)};
 
+      @media only screen and (max-width: 414px) {
+        height: #{scaleValue(400)};
+        width: 75vw;
+      }
+
       & figure {
         display: flex;
         justify-content: center;
         align-items: center;
+
+        @media only screen and (max-width: 414px) {
+          height: 100%;
+        }
       }
       
       & img {
         width: 80%;
         height: 70%;
         object-fit: scale-down;
+
+        @media only screen and (max-width: 414px) {
+          width: 80%;
+          height: 60%;
+        }
       }
     }
   }
@@ -58,12 +82,18 @@
       background: #000000;
       text-transform: uppercase;
       color: #fff;
-      width: #{scaleValue(180)};
-      height: #{scaleValue(50)};
+      width: #{scaleValue(260)};
+      height: #{scaleValue(85)};
+      margin-bottom: #{scaleValue(5)};
       cursor: pointer;
       display: flex;
       justify-content: center;
       align-items: center;
+
+      @media only screen and (max-width: 414px) {
+        width: #{scaleValue(900)};
+        height: #{scaleValue(200)};
+      }
 
       & img {
         object-fit: contain;
@@ -74,9 +104,15 @@
 
     &--incde {
       position: relative;
-      width: #{scaleValue(183)};
-      height: #{scaleValue(59)};
+      width: #{scaleValue(260)};
+      height: #{scaleValue(85)};
       margin-bottom: #{scaleValue(5)};
+
+      @media only screen and (max-width: 414px) {
+        width: #{scaleValue(900)};
+        height: #{scaleValue(200)};
+        margin-bottom: #{scaleValue(30)};
+      }
     }
 
     &--togglebackground {
@@ -97,10 +133,19 @@
       padding: #{scaleValue(10)} 0;
       font-size: #{scaleValue(25)};
       font-weight: 300;
+
+      @media only screen and (max-width: 414px) {
+        font-size: #{scaleValue(100)};
+        padding: #{scaleValue(60)} 0;
+      }
     }
 
     &--amount {
       font-size: #{scaleValue(25)};
+
+      @media only screen and (max-width: 414px) {
+        font-size: #{scaleValue(100)};
+      }
     }
 
     &--area {
@@ -115,9 +160,18 @@
       align-items: center;
       padding: 0 #{scaleValue(10)};
 
+      @media only screen and (max-width: 414px) {
+        padding: 0 #{scaleValue(50)};
+      }
+
       & figure {
         width: #{scaleValue(24)};
         height: #{scaleValue(25)};
+
+        @media only screen and (max-width: 414px) {
+          width: #{scaleValue(100)};
+          height: #{scaleValue(200)};
+        }
 
         & img {
           object-fit: contain;

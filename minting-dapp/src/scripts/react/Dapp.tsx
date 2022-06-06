@@ -170,7 +170,8 @@ export default class Dapp extends React.Component<Props, State> {
         <div className="dapp">
           <div className="container">
             <figure className="container__back">
-              <img src="build/images/background.png"/>
+              <img src="build/images/background.png" className="desktop"/>
+              <img src="build/images/backgroundmobile.png" className="mobile"/>
             </figure>
             <div className="container__content">
               <div className="container__photos">

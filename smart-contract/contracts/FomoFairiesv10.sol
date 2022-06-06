@@ -179,12 +179,8 @@ contract FomoFairiesv10 is ERC721A, Ownable, ReentrancyGuard {
   }
 
   function withdraw() public onlyOwner nonReentrant {
-    // This will transfer the remaining contract balance to the owner.
-    // Do not remove this otherwise you will not be able to withdraw the funds.
-    // =============================================================================
     (bool os, ) = payable(owner()).call{value: address(this).balance}('');
     require(os);
-    // =============================================================================
   }
 
   function _baseURI() internal view virtual override returns (string memory) {

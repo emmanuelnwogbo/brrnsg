@@ -52,13 +52,31 @@ html {
     z-index: 1;
 
     @media only screen and (max-width: 414px) {
-      //height: 100vh;
+      height: 100vh;
     }
 
     & img {
-      object-fit: unset;
-      height: 100%;
-      width: 100%;
+
+      &.desktop {
+        object-fit: unset;
+        height: 100%;
+        width: 100%;  
+        
+        @media only screen and (max-width: 414px) {
+          display: none;
+        }
+      }
+
+      &.mobile {
+        object-fit: unset;
+        height: 100%;
+        width: 100%; 
+        display: none;
+        
+        @media only screen and (max-width: 414px) {
+          display: block;
+        }
+      }
     }
   }
 
@@ -68,7 +86,8 @@ html {
     display: flex;
 
     @media only screen and (max-width: 414px) {
-      //flex-direction: column;
+      flex-direction: column-reverse;
+      align-items: center;
     }
   }
 
@@ -76,6 +95,12 @@ html {
     position: relative;
     width: #{scaleValue(610)};
     height: 100vh;
+
+    @media only screen and (max-width: 414px) {
+      height: #{scaleValue(1300)};
+      width: 100vw;
+      margin-top: #{scaleValue(100)};
+    }
 
     &--wall {
       width: #{scaleValue(560)};
@@ -85,10 +110,19 @@ html {
       left: 0;
       overflow: hidden;
 
+      @media only screen and (max-width: 414px) {
+        height: #{scaleValue(2300)};
+        width: 100vw;
+      }
+
       & img {
         width: 100%;
         height: 100%;
         object-fit: cover;
+
+        @media only screen and (max-width: 414px) {
+          object-fit: none;
+        }
       }
     }
   }
@@ -103,9 +137,18 @@ html {
     background: transparent;
     padding-left: #{scaleValue(35)};
 
+    @media only screen and (max-width: 414px) {
+      height: #{scaleValue(1300)};
+      width: 100vw;
+    }
+
     &--area {
       display: flex;
       margin-bottom: #{scaleValue(20)};
+
+      @media only screen and (max-width: 414px) {
+        justify-content: center;
+      }
     }
 
     &--item {
@@ -123,6 +166,11 @@ html {
       position: relative;
       width: #{scaleValue(210)};
       height: #{scaleValue(230)};
+
+      @media only screen and (max-width: 414px) {
+        height: #{scaleValue(660)};
+        width: #{scaleValue(700)};
+      }
 
       & figure {
         width: 88%;
@@ -169,6 +217,13 @@ html {
     height: #{scaleValue(120)};
     width: #{scaleValue(380)};
 
+    @media only screen and (max-width: 414px) {
+      height: #{scaleValue(500)};
+      width: #{scaleValue(1200)};
+      margin: 0 auto;
+      transform: rotate(-2deg);
+    }
+
     &::before {
       position: absolute;
       content: '';
@@ -193,6 +248,10 @@ html {
       &:nth-child(2) {
         position: relative;
         z-index: 2;
+
+        @media only screen and (max-width: 414px) {
+          padding: #{scaleValue(50)}
+        }
       }
 
       & img {
@@ -213,6 +272,13 @@ html {
   width: #{scaleValue(200)};
   padding: #{scaleValue(30)};
   animation: brrrr 1s ease-in-out infinite alternate;
+
+  @media only screen and (max-width: 414px) {
+    position: relative;
+    top: #{scaleValue(100)};
+    height: #{scaleValue(600)};
+    width: #{scaleValue(500)};
+  }
 
   & img {
     width: 100%;
