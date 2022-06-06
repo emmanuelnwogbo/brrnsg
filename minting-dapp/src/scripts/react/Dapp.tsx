@@ -168,11 +168,14 @@ export default class Dapp extends React.Component<Props, State> {
     return (
       <>
         <div className="dapp">
-          <div className="container">
-            <figure className="container__back">
+          <div className="container" style={{
+            backgroundImage: `url('build/images/background.png')`,
+            backgroundPosition: `top`
+          }}>
+            {/*<figure className="container__back">
               <img src="build/images/background.png" className="desktop"/>
               <img src="build/images/backgroundmobile.png" className="mobile"/>
-            </figure>
+    </figure>*/}
             <div className="container__content">
               <div className="container__photos">
                 <figure className="container__photos--wall">
