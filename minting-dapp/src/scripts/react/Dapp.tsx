@@ -86,42 +86,25 @@ export default class Dapp extends React.Component<Props, State> {
         network: "mainnet", // optional
         providerOptions
       });
-  
-      //const provider = await web3Modal.connect();
-      //const web3 = new Web3(provider);
+
       console.log(web3Modal)
       const connection = await web3Modal.connect()
-      const provider = new ethers.providers.Web3Provider(connection)
-      const accounts = await provider.listAccounts()
-      console.log({ accounts })
-      /*this.setError( 
-        <>
-          We were not able to detect <strong>MetaMask</strong>. We value <strong>privacy and security</strong> a lot so we limit the wallet options on the DAPP.<br />
-          <br />
-          But don't worry! <span className="emoji">😃</span> You can always interact with the smart-contract through <a href={this.generateContractUrl()} target="_blank">{this.state.networkConfig.blockExplorer.name}</a> and <strong>we do our best to provide you with the best user experience possible</strong>, even from there.<br />
-          <br />
-          You can also get your <strong>Whitelist Proof</strong> manually, using the tool below.
-        </>,
-      );*/
+      this.provider = new ethers.providers.Web3Provider(connection);
+      console.log(this.state, this.provider);
+
+      this.initWallet();
+      //const accounts = await provider.listAccounts()
+      //console.log({ accounts })
+    } else {
+      this.provider = new ethers.providers.Web3Provider(browserProvider);
+      this.registerWalletEvents(browserProvider);
+      await this.connectWallet();
     }
-
-    this.provider = new ethers.providers.Web3Provider(browserProvider);
-
-    this.registerWalletEvents(browserProvider);
-    await this.connectWallet();
     //await this.initWallet();
-
-    if (window.matchMedia("(max-width: 414px)").matches) {
-      
-    }
   }
 
 
   //audio = new Audio('https://cms-duck.s3.eu-west-2.amazonaws.com/metaraver_1.mp3');
-
-  async enterAdventure(): Promise<void> {
-    
-  }
 
   async mintTokens(amount: number): Promise<void>
   {
@@ -384,7 +367,7 @@ export default class Dapp extends React.Component<Props, State> {
   private async initWallet(): Promise<void>
   {
     const walletAccounts = await this.provider.listAccounts();
-    console.log(walletAccounts)
+    console.log(walletAccounts, 'wallet accounts here')
     
     this.setState(defaultState);
 
