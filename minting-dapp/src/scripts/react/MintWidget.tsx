@@ -135,7 +135,7 @@ export default class MintWidget extends React.Component<Props, State> {
         <div>
 
           {this.canMint() ?
-          <div className="main prereveal">
+          <div className="main">
             {/*<div className="main__price">
               <strong></strong> {utils.formatEther(this.props.tokenPrice.mul(this.state.mintAmount))} ETH 
             </div>*/}
@@ -160,7 +160,7 @@ export default class MintWidget extends React.Component<Props, State> {
           {/*<a className="ethlink" href="https://etherscan.io/address/0xa35346ef08F731AF6E7D3d1F5B948c1De0AEcc8C#code" target="_blank">0xa35346ef08F731AF6E7D3d1F5B948c1De0AEcc8C</a>
           <div className="maxmint">10 Max</div>*/}
 
-            {/*<div className="main__controls">
+            <div className="main__controls">
               <div className="main__controls--supplystatus">{this.props.totalSupply}/{this.props.maxSupply}</div>
               <div className="main__controls--incde">
                 <figure className="main__controls--togglebackground">
@@ -183,12 +183,12 @@ export default class MintWidget extends React.Component<Props, State> {
                 </figure> : 
                 <button className="main__controls--primary">{this.props.connecting ? 'Connecting' : 'Connect'}</button>
                 }
-              </div>*/}
-              <div className="main__controls">
+              </div>
+              {/*<div className="main__controls">
                 <figure className="main__controls--mint main__controls--calm">
                   <img src="build/images/calm.png"/>
                 </figure>
-              </div>
+              </div>*/}
           </div>
           :
           <div className="cannot-mint">
