@@ -174,7 +174,7 @@ export default class Dapp extends React.Component<Props, State> {
       <>
         <div className="dapp">
           <div className="container" style={{
-            backgroundImage: `url('build/images/background.png')`,
+            backgroundImage: window.matchMedia("(max-width: 414px)").matches ? `url('build/images/backgroundmobile.png')` : `url('build/images/background.png')`,
             backgroundPosition: `top`
           }}>
             {/*<figure className="container__back">

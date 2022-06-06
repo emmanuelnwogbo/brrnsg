@@ -24,7 +24,10 @@
   height: #{scaleValue(500)};
 
   @media only screen and (max-width: 414px) {
-    width: 90vw;
+    width: 70vw;
+    height: #{scaleValue(1800)};
+    border: 5px solid #000000;
+    padding: #{scaleValue(60)} #{scaleValue(20)};
   }
 
   &__phrases {
@@ -42,8 +45,8 @@
       width: #{scaleValue(360)};
 
       @media only screen and (max-width: 414px) {
-        height: #{scaleValue(400)};
-        width: 75vw;
+        height: #{scaleValue(300)};
+        width: 65vw;
       }
 
       & figure {

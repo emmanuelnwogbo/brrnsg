@@ -28,6 +28,10 @@
 body {
   color: #000000;
   height: #{scaleValue(1000)};
+
+  @media only screen and (max-width: 414px) {
+    height: auto
+  }
 }
 
 html {
@@ -42,7 +46,8 @@ html {
 
 
   @media only screen and (max-width: 414px) {
-    //height: 100vh;
+    height: auto;
+    padding-top: #{scaleValue(280)};
   }
 
   &__back {
@@ -91,6 +96,7 @@ html {
     @media only screen and (max-width: 414px) {
       flex-direction: column-reverse;
       align-items: center;
+      height: #{scaleValue(3000)};
     }
   }
 
@@ -114,7 +120,7 @@ html {
       overflow: hidden;
 
       @media only screen and (max-width: 414px) {
-        height: #{scaleValue(2300)};
+        height: #{scaleValue(2400)};
         width: 100vw;
       }
 
@@ -158,6 +164,10 @@ html {
       border-right: solid 2.4px #000000;
       border-bottom: solid 2.4px #000000;
       margin-right: #{scaleValue(10)};
+      
+      @media only screen and (max-width: 414px) {
+        margin-right: #{scaleValue(40)};
+      }
     }
 
     &--background {
@@ -172,8 +182,8 @@ html {
       //display: none;
 
       @media only screen and (max-width: 414px) {
-        height: #{scaleValue(600)};
-        width: #{scaleValue(500)};
+        height: #{scaleValue(700)};
+        width: #{scaleValue(670)};
       }
 
       & figure {
@@ -211,6 +221,10 @@ html {
 
   &__mintarea {
     padding-top: #{scaleValue(90)};
+
+    @media only screen and (max-width: 414px) {
+      padding-top: #{scaleValue(40)};
+    }
   }
 
   &__mintbobo {
@@ -223,9 +237,10 @@ html {
 
     @media only screen and (max-width: 414px) {
       height: #{scaleValue(500)};
-      width: #{scaleValue(1200)};
-      margin: 0 auto;
+      width: #{scaleValue(1000)};
+      margin: #{scaleValue(100)} auto;
       transform: rotate(-2deg);
+      margin-top: #{scaleValue(100)} 
     }
 
     &::before {
@@ -249,20 +264,26 @@ html {
         width: 100%;
       }
 
+
+      & img {
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+      }
+
       &:nth-child(2) {
         position: relative;
         z-index: 2;
         padding: #{scaleValue(20)};
 
         @media only screen and (max-width: 414px) {
-          padding: #{scaleValue(50)}
-        }
-      }
+          padding: #{scaleValue(50)};
 
-      & img {
-        height: 100%;
-        width: 100%;
-        object-fit: cover;
+          & img {
+            height: 97%;
+            width: 100%;
+          }
+        }
       }
     }
   }
@@ -280,9 +301,10 @@ html {
 
   @media only screen and (max-width: 414px) {
     position: relative;
-    top: #{scaleValue(100)};
     height: #{scaleValue(600)};
     width: #{scaleValue(500)};
+    //margin-bottom: #{scaleValue(40)};
+    //margin-top: #{scaleValue(190)};
   }
 
   & img {

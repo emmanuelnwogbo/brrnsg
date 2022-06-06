@@ -26,7 +26,7 @@ const CollectionConfig: CollectionConfigInterface = {
     price: 0.003,
     maxMintAmountPerTx: 8,
   },
-  contractAddress: '0x68e03eD8dAeA05cC9b9aDFd6530384dCC8571428',
+  contractAddress: '0x206a9d4EE4C4D32d30E3e39cD1Af80F94f4a0A05',
   marketplaceIdentifier: 'FomoFairiesNFT',
   marketplaceConfig: openSea,
   whitelistAddresses: whitelistAddresses,
