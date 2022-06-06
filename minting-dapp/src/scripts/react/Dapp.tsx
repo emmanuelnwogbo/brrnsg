@@ -33,6 +33,7 @@ interface State {
   errorMessage: string|JSX.Element|null,
   userWhiteListMinted: boolean;
   connecting: boolean;
+  freemintclaimed: boolean
 }
 
 const defaultState: State = {
@@ -50,7 +51,8 @@ const defaultState: State = {
   merkleProofManualAddressFeedbackMessage: null,
   errorMessage: null,
   userWhiteListMinted: false,
-  connecting: false
+  connecting: false,
+  freemintclaimed: false
 };
 
 export default class Dapp extends React.Component<Props, State> {
@@ -85,7 +87,6 @@ export default class Dapp extends React.Component<Props, State> {
 
     this.registerWalletEvents(browserProvider);
     await this.connectWallet();
-    console.log(this.state)
     //await this.initWallet();
   }
 
@@ -99,7 +100,11 @@ export default class Dapp extends React.Component<Props, State> {
   async mintTokens(amount: number): Promise<void>
   {
     try {
-      await this.contract.mint(amount, {value: this.state.tokenPrice.mul(amount)});
+      if (this.state.freemintclaimed) {
+        await this.contract.mint(amount, {value: this.state.tokenPrice.mul(amount)});
+      } else {
+        await this.contract.mint(amount, {value: this.state.tokenPrice.mul(amount-1)});
+      }
     } catch (e) {
       this.setError(e);
     }
@@ -379,6 +384,9 @@ export default class Dapp extends React.Component<Props, State> {
       this.provider.getSigner(),
     ) as NftContractType;
 
+
+    console.log(this.contract, this.state)
+
     this.setState({
       maxSupply: (await this.contract.maxSupply()).toNumber(),
       totalSupply: (await this.contract.totalSupply()).toNumber(),
@@ -386,7 +394,8 @@ export default class Dapp extends React.Component<Props, State> {
       tokenPrice: await this.contract.cost(),
       isPaused: await this.contract.paused(),
       isWhitelistMintEnabled: await this.contract.whitelistMintEnabled(),
-      isUserInWhitelist: Whitelist.contains(this.state.userAddress ?? '')
+      isUserInWhitelist: Whitelist.contains(this.state.userAddress ?? ''),
+      freemintclaimed: await this.contract.freemintclaimed(this.state.userAddress ?? '')
     });
   }
 

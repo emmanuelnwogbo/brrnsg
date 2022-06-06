@@ -9,9 +9,9 @@ const CollectionConfig: CollectionConfigInterface = {
   // The contract name can be updated using the following command:
   // yarn rename-contract NEW_CONTRACT_NAME
   // Please DO NOT change it manually!
-  contractName: 'FomoFairiesv10',
-  tokenName: 'FomoFairiesv10 NFT',
-  tokenSymbol: 'FomoFairiesv10',
+  contractName: 'FomoFairies',
+  tokenName: 'FomoFairies NFT',
+  tokenSymbol: 'FomoFairies',
   hiddenMetadataUri: 'ipfs://__CID__/hidden.json',
   maxSupply: 3333,
   whitelistSale: {
@@ -27,7 +27,7 @@ const CollectionConfig: CollectionConfigInterface = {
     maxMintAmountPerTx: 8,
   },
   contractAddress: '0x68e03eD8dAeA05cC9b9aDFd6530384dCC8571428',
-  marketplaceIdentifier: 'FomoFairiesv10NFT',
+  marketplaceIdentifier: 'FomoFairiesNFT',
   marketplaceConfig: openSea,
   whitelistAddresses: whitelistAddresses,
 };
