@@ -313,10 +313,11 @@ html {
 
 .icons {
   position: fixed;
-  right: #{scaleValue(110)};
+  right: #{scaleValue(20)};
   top: #{scaleValue(129)};
   padding: #{scaleValue(30)};
-  cursor: pointer;
+  display: flex;
+  z-index: 10;
 
   @media only screen and (max-width: 414px) {
     position: relative;
@@ -326,6 +327,18 @@ html {
     display: inline-block;
     height: #{scaleValue(30)};
     width: #{scaleValue(30)};
+    margin-right: #{scaleValue(30)};
+    cursor: pointer;
+
+    & svg {
+      height: #{scaleValue(30)};
+      width: #{scaleValue(30)};
+
+      @media only screen and (max-width: 414px) {
+        height: #{scaleValue(200)};
+        width: #{scaleValue(200)};
+      }
+    }
 
     @media only screen and (max-width: 414px) {
       height: #{scaleValue(200)};
