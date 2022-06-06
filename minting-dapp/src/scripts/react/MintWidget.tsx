@@ -13,7 +13,8 @@ interface Props {
   whitelistMintTokens(mintAmount: number): Promise<void>
   connectWallet: Function
   connecting: Boolean,
-  userAddress: string|null;
+  userAddress: string|null,
+  mobileConnect: Function
 }
 
 interface State {
@@ -116,7 +117,7 @@ export default class MintWidget extends React.Component<Props, State> {
                 <figure className="main__controls--mint" onClick={() => this.mint()}>
                   <img src="build/images/mint.png"/>
                 </figure> : 
-                <button className="main__controls--primary">{this.props.connecting ? 'Connecting' : 'Connect'}</button>
+                <button className="main__controls--connectmobile" onClick={() => this.props.mobileConnect()}>{this.props.connecting ? 'Connecting' : 'Connect'}</button>
                 }
               </div>
               {/*<div className="main__controls">

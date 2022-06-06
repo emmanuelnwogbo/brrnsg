@@ -119,6 +119,22 @@
       }
     }
 
+    &--connectmobile {
+      background: #000000;
+      text-transform: uppercase;
+      color: #fff;
+      width: #{scaleValue(260)};
+      height: #{scaleValue(85)};
+      margin-bottom: #{scaleValue(5)};
+      font-size: #{scaleValue(25)};
+
+      @media only screen and (max-width: 414px) {
+        width: #{scaleValue(900)};
+        height: #{scaleValue(200)};
+        font-size: #{scaleValue(80)};
+      }
+    }
+
     &--calm {
       width: #{scaleValue(260)};
       height: #{scaleValue(85)};

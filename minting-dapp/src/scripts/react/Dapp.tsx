@@ -9,7 +9,6 @@ import NetworkConfigInterface from '../../../../smart-contract/lib/NetworkConfig
 import MintWidget from './MintWidget';
 import Whitelist from '../lib/Whitelist';
 
-import Web3 from "web3";
 import Web3Modal from "web3modal";
 import WalletConnectProvider from "@walletconnect/web3-provider";
 
@@ -34,7 +33,8 @@ interface State {
   errorMessage: string|JSX.Element|null,
   userWhiteListMinted: boolean;
   connecting: boolean;
-  freemintclaimed: boolean
+  freemintclaimed: boolean,
+  mobileButton: boolean
 }
 
 const defaultState: State = {
@@ -53,7 +53,8 @@ const defaultState: State = {
   errorMessage: null,
   userWhiteListMinted: false,
   connecting: false,
-  freemintclaimed: false
+  freemintclaimed: false,
+  mobileButton: false
 };
 
 export default class Dapp extends React.Component<Props, State> {
@@ -73,9 +74,12 @@ export default class Dapp extends React.Component<Props, State> {
     const browserProvider = await detectEthereumProvider() as ExternalProvider;
 
     if (browserProvider?.isMetaMask !== true) {
-      const providerOptions = {
+      this.setState({
+        mobileButton: true
+      })
+      /*const providerOptions = {
         walletconnect: {
-          package: WalletConnectProvider, // required
+          package: WalletConnectProvider,
           options: {
             infuraId: "b84b6a3a88fc4655902dba0c9cb32b7a"
           }
@@ -83,24 +87,40 @@ export default class Dapp extends React.Component<Props, State> {
       };
   
       const web3Modal = new Web3Modal({
-        network: "mainnet", // optional
+        network: "mainnet",
         providerOptions
       });
 
-      console.log(web3Modal)
       const connection = await web3Modal.connect()
       this.provider = new ethers.providers.Web3Provider(connection);
-      console.log(this.state, this.provider);
 
-      this.initWallet();
-      //const accounts = await provider.listAccounts()
-      //console.log({ accounts })
+      this.initWallet();*/
     } else {
       this.provider = new ethers.providers.Web3Provider(browserProvider);
       this.registerWalletEvents(browserProvider);
       await this.connectWallet();
     }
-    //await this.initWallet();
+  }
+
+  async mobileConnect(): Promise<void> {
+    const providerOptions = {
+      walletconnect: {
+        package: WalletConnectProvider,
+        options: {
+          infuraId: "b84b6a3a88fc4655902dba0c9cb32b7a"
+        }
+      }
+    };
+
+    const web3Modal = new Web3Modal({
+      network: "mainnet",
+      providerOptions
+    });
+
+    const connection = await web3Modal.connect()
+    this.provider = new ethers.providers.Web3Provider(connection);
+
+    this.initWallet();    
   }
 
 
@@ -287,6 +307,7 @@ export default class Dapp extends React.Component<Props, State> {
                   connectWallet={() => this.connectWallet()}
                   connecting={this.state.connecting}
                   userAddress={this.state.userAddress}
+                  mobileConnect={() => this.mobileConnect()}
                 />
               </div>
 
