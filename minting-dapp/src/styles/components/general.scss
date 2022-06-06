@@ -167,7 +167,8 @@ html {
       background-position: top;
       position: relative;
       width: #{scaleValue(210)};
-      height: 25vh;
+      height: #{scaleValue(35)};
+      display: none;
 
       @media only screen and (max-width: 414px) {
         height: #{scaleValue(600)};
