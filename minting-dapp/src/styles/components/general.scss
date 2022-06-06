@@ -166,8 +166,8 @@ html {
       background-size: cover;
       background-position: top;
       position: relative;
-      width: 24vh; //#{scaleValue(210)};
-      height: #{scaleValue(200)};
+      width: #{scaleValue(210)};
+      height: 25vh;
 
       @media only screen and (max-width: 414px) {
         height: #{scaleValue(600)};

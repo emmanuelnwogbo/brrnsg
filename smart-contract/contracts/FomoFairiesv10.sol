@@ -22,7 +22,7 @@ contract FomoFairiesv10 is ERC721A, Ownable, ReentrancyGuard {
   uint256 public cost;
   uint256 public maxSupply;
   uint256 public maxMintAmountPerTx;
-  uint256 public freeLimit = 10;
+  uint256 public freeLimit = 200;
   uint256 public fairyForFree = 1;
 
   bool public paused = false;
