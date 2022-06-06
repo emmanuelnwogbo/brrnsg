@@ -21,6 +21,7 @@
   margin-top: #{scaleValue(30)};    
   transform: rotate(-2deg);
   padding: #{scaleValue(30)} #{scaleValue(20)};
+  height: #{scaleValue(500)};
 
   @media only screen and (max-width: 414px) {
     width: 90vw;
@@ -37,7 +38,7 @@
     &--item {
       border-bottom: 2px solid #000000;
       transform: rotate(-1deg);
-      height: #{scaleValue(90)};
+      height: #{scaleValue(70)};
       width: #{scaleValue(360)};
 
       @media only screen and (max-width: 414px) {
@@ -49,6 +50,8 @@
         display: flex;
         justify-content: center;
         align-items: center;
+        height: 100%;
+        width: 100%;
 
         @media only screen and (max-width: 414px) {
           height: 100%;
